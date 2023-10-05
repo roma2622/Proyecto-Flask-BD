@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 py-4 bg">
                 <h2>Formulario alumnos</h2>
-                <form>
+                <form action="" method="post">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" placeholder="" autofocus>
@@ -47,7 +47,7 @@
                         <input type="text" class="form-control" id="especialidad" placeholder="">
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-success">Guardar</button>
+                        <button class="btn btn-success" type="submit">Guardar</button>
                         <button class="btn btn-secondary">Limpiar</button>
                     </div>
                 </form>
@@ -58,7 +58,8 @@
                     <thead>
                         <tr>
                             <th class="centrado">#</th>
-                            <th class="centrado">Alumnos</th>
+                            <th class="centrado">Nombre</th>
+                            <th class="centrado">Apellido</th>
                             <th class="centrado">Genero</th>
                             <th class="centrado">Año</th>
                             <th class="centrado">Division</th>
@@ -68,7 +69,8 @@
                     <tbody>
                         <tr>
                             <td class="centrado">1</td>
-                            <td class="centrado">Sebastian</td>
+                            <td class="centrado">{{d.id}}</td>
+                            <td class="centrado">de León</td>
                             <td class="centrado">M</td>
                             <td class="centrado">4</td>
                             <td class="centrado">2</td>
@@ -77,6 +79,7 @@
                         <tr>
                             <td class="centrado">2</td>
                             <td class="centrado">Roman</td>
+                            <td class="centrado">Abalos</td>
                             <td class="centrado">M</td>
                             <td class="centrado">4</td>
                             <td class="centrado">2</td>
@@ -85,6 +88,7 @@
                         <tr>
                             <td class="centrado">3</td>
                             <td class="centrado">Catalina</td>
+                            <td class="centrado">Messi</td>
                             <td class="centrado">F</td>
                             <td class="centrado">3</td>
                             <td class="centrado">3</td>
@@ -93,6 +97,7 @@
                         <tr>
                             <td class="centrado">4</td>
                             <td class="centrado">Facundo</td>
+                            <td class="centrado">Rios</td>
                             <td class="centrado">M</td>
                             <td class="centrado">4</td>
                             <td class="centrado">1</td>
