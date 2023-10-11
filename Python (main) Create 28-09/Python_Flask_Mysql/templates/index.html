@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-5">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages%}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+        <div class="card card-body">
+            <form action="/agregar" method="POST">
+                <div class="form-group pt-2">
+                    <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                </div>
+                <div class="form-group pt-2">
+                    <input type="text" name="apellido1" placeholder="Primer Apellido" class="form-control">
+                </div>
+                <div class="form-group pt-2">
+                    <input type="text" name="apellido2" placeholder="Segundo Apellido" class="form-control">
+                </div>
+                <div class="form-group pt-2">
+                    <select name="turno" class="form-control">
+                        <option value="Tarde">Tarde</option>
+                        <option value="Mañana">Mañana</option>
+                        <option value="Vespertino">Vespertino</option>
+                    </select>
+                </div>
+                <div class="form-group pt-2">
+                    <!--<input type="text" name="curso" placeholder="Curso" class="form-control"> -->
+                    <select name="curso" class="form-control">
+                        <option value="4to2da">4to2da</option>
+                        <option value="4to6ta">4to6ta</option>
+                        <option value="5to1ra">5to1ra</option>
+                    </select>
+                </div>
+                <div class="form-group pt-2">
+                    <button type="submit" class="btn btn-primary">
+                        Guardar
+                    </button>
+                </div>
+                   
+            </form>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Primer Apellido</td>
+                    <td>Segundo Apellido</td>
+                    <td>Curso</td>
+                    <td>Turno</td>
+                    <td>Operaciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alumno in alumnos %}
+                <tr>
+                    <td>{{ alumno.4 }}</td>
+                    <td>{{ alumno.5 }}</td>
+                    <td>{{ alumno.6 }}</td>
+                    <td>{{ alumno.1 }}</td>
+                    <td>{{ alumno.2 }}</td>
+                    <td>
+                        <a href="/editar/{{alumno.0}}" class="btn btn-secondary"> Editar</a>
+                        <a href="/eliminar/{{alumno.0}}" class="btn btn-danger btn-delete"> Eliminar </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock %}
