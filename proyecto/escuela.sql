@@ -14,7 +14,6 @@ insert into users(nombre,password)
 VALUES("root","root")
 
 select * from alumno;
-select m.nombre from materia m inner join alumno a on m.id=a.id where a.id = 4
 
 CREATE TABLE materia (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -28,6 +27,8 @@ CREATE TABLE profesor (
   apellido2 VARCHAR(100)
 );
 
+INSERT INTO profesor(nombre,apellido1,apellido2) VALUES("Jose","Pepe","Luis");
+
 CREATE TABLE curso (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
@@ -35,8 +36,11 @@ CREATE TABLE curso (
   
 );
 
+select * from curso;
+
+drop table alumno;
 CREATE TABLE alumno (
-  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  legajo INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
   apellido1 VARCHAR(100) NOT NULL,
   apellido2 VARCHAR(100),
@@ -44,6 +48,8 @@ CREATE TABLE alumno (
   FOREIGN KEY (id_curso) REFERENCES curso(id)
   
 );
+
+INSERT INTO alumno(id_curso,nombre,apellido1,apellido2) VALUES(1,"Billy","Himller","deutch")
 
 select * from alumno;
 
